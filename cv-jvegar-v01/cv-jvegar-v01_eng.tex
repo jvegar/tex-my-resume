@@ -1,4 +1,3 @@
-%-------------------------
 % Resume in Latex
 % Author : Jose Vega
 % License : MIT
@@ -23,6 +22,7 @@
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4.08003pt}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
@@ -33,14 +33,14 @@
 
 \urlstyle{same}
 
-\raggedbottom
-\raggedright
+\raggedbottom{}
+\raggedright{}
 \setlength{\tabcolsep}{0in}
 
 % Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+}{}{0em}{}[\color{black}\titlerule{} \vspace{-5pt}]
 
 %-------------------------
 % Custom commands
@@ -58,19 +58,22 @@
     \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
+% \newcommand{\resumeProjectHeading}[2]{
+%     \vspace{2pt}\item
+%     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%       \small\textbf{#1} & \\
+%     \end{tabular*}\vspace{-7pt}
+% }
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{2pt}\item \small
+    \textbf{#1} \hfill #2 \vspace{-5pt}
 }
-
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
@@ -83,134 +86,109 @@
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\href{https://linkedin.com/in/josevegar}{\Large José E. Vega Raymondi}} & Email : \href{mailto:jvegar@uni.pe}{jvegar@uni.pe}\\
   \href{https://github.com/jvegar}{https://github.com/jvegar} & Mobile : +51-991139451 \\
+  \textit{Senior Backend Engineer | Fullstack Specialist} & Lima, Perú \\
 \end{tabular*}
 
-
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {University of the Pacific}{Lima, Perú}
-      {Master in Finance - Invesment Portfolio Management}{Dic. 2014 -- Dic. 2016}
-    \resumeSubheading
-      {National University of Engineering}{Lima, Perú}
-      {Bachelor in Systems Engineering}{Ene. 2003 -- Dic. 2009}
-  \resumeSubHeadingListEnd
-
+% Add this right below your name/contact info
+\begin{center}
+    \small Senior Backend Engineer specializing in \textbf{Distributed Systems} and \textbf{Event-Driven Architecture}. 
+    Expertise in migrating legacy monoliths to \textbf{Microservices} using \textbf{CQRS} and \textbf{Event Sourcing}. 
+    Proven track record of designing high-scale systems with \textbf{NestJS, Kafka, and PostgreSQL}.
+\end{center}
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {BairesDev}{Remote}
+  {Software Engineer}{Sept 2021 -- Present}
   \resumeSubHeadingListStart
+    \resumeProjectHeading{Fintech Project: Lucinity}{}
+    \resumeItemListStart
+        \item Architected and developed scalable GraphQL services using TypeScript, Express, and Apollo Server, facilitating the migration of legacy Python (FastAPI) REST endpoints.
+        \item Implemented Event Sourcing patterns utilizing a custom internal library leveraging PostgreSQL NOTIFY for event stores and real-time projections.
+        \item Developed reusable UI components with React, Material UI, and Storybook, ensuring design consistency and internationalization (i18next).
+        \item Managed database schema evolution by writing and executing complex Flyway migrations for PostgreSQL.
+    \resumeItemListEnd
 
-  \resumeSubheading
-  {BairesDev}{California, USA (Remote)}
-  {Software Engineer}{Sept 2021 - Today}
-  \resumeItemListStart
-    \resumeItem{Backend Development}
-      {DB Modeling (Postgres), API Development (Node, JS, TypeScript, GraphQL, REST), Frameworks (NestJS, Express, Apollo Server, Hapi)}
-    \resumeItem{Front-End Development}
-      {UI Prototyping (Figma), UI Components Development (Angular, React, HTML, CSS, JS, TypeScript).}
-    \resumeItem{DevOps}
-      {Agile Board (Jira), Git Repositories (GitLab, Azure Devops), Pipelines (Azure Devops), Docker containers.} 
-  \resumeItemListEnd
+    \resumeProjectHeading{EdTech Project: Instructure}{}
+    \resumeItemListStart
+        \item Led the backend migration of a legacy WebPD application from Node.js v5/Hapi to a modern, containerized AWS Fargate environment.
+        \item Refactored legacy JavaScript to modern ES6+ standards (Async/Await, Promises), improving maintainability and performance.
+        \item Modernized DevOps workflows with optimized Docker configurations, integrating AWS S3, Redis, ElasticSearch, and MariaDB.
+        \item Increased reliability by identifying deprecated libraries and expanding the test suite for the migrated architecture.
+    \resumeItemListEnd
 
-  \resumeSubheading
-  {NTT Data}{Lima, Perú}
-  {Centers Lead Developer}{Sept 2020 - Aug 2021}
-  \resumeItemListStart
-    \resumeItem{Leadership}
-      {Mentoring junior members of the team, evaluating development work efforts and quality.}
-    \resumeItem{Backend Development}
-      {DB Modelling (SQL Server), MVC Application Development (CSharp), REST Service Development (CSharp, NodeJS, Express).}
-    \resumeItem{Front-End Development}
-      {UI Prototyping (Justinmind), SPA Development (HTML, CSS, JS, TypeScript), JS Frameworks (React, AngularJS).}
-    \resumeItem{DevOps}
-      {Agile Board (MS Planner), Git Repositories (Azure Devops), Pipelines (Azure Devops)}
-   
-  \resumeItemListEnd
-
-    \resumeSubheading
-      {Certero}{Lima, Perú}
-      {Solutions Architect}{Feb 2017 - Mar 2020}
-      \resumeItemListStart
-        \resumeItem{Data Architecture}
-          {DB Modelling (SQL Server), ETL development (SSIS, Azure Data Factory), Dashboard designing (PowerBI).}
-        \resumeItem{Web Application Development Full Stack}
-          {Forms Design and Prototyping (Visio, Justinmind), Front-End Components Development (HTML,CSS,TypeScript, NodeJS, React), MVC .NET Application Development.}          
-        \resumeItem{Applications Architecture}
-          {Business and Application Layer Design (BMPN), REST APIs Consuming and Building (.NET Core, NodeJS).}
-        \resumeItem{DevOps}
-          {Agile Board (Trello), Git Repositories (Gitlab), Containerization (Docker).}
-        \resumeItem{Cloud Architecture}
-          {Cloud Components Design (Azure), Script automating (Azure Cli, Powershell)}.    
-      \resumeItemListEnd
-      
-% --------Multiple Positions Heading------------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
-    \resumeSubheading
-      {Evol TS Net}{ Lima, Perú}
-      {Developer Consultant}{Ene 2014 - Ene 2017}
-      \resumeItemListStart
-        \resumeItem{Backend Development}
-          {Building SharePoint server-side components (webparts, event receivers, timer jobs). MVC Application development and WCF Services for integration with SAP.}
-        \resumeItem{Database}
-          {Database modelling. DB Components Building (T-SQL). Queries optimization (indexes, temp tables).}        
-        \resumeItem{Front-End Development}
-          {Redesigning Front-end components (master pages) for an Intranet using UX Design methodologies, responsive design (Bootstrap) and JS Libraries (JQuery, Knockout).} 
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {CGI}{Lima, Perú}
-      {Developer}{Dic 2011 - Dic 2013}
-      \resumeItemListStart
-        \resumeItem{Backend Development}
-          {Application Server Optimization (IIS), and building new server-side components (webparts, powershell scripts, WCF services).}
-        \resumeItem{Database}
-          {Building ETLs for integration between databases and Flat CSV files (SQL Server).}
-      \resumeItemListEnd
-%
-%    \resumeSubheading
-%      {Banco de la Nación}{Lima, Perú}
-%      {IT Infrastructure Analyst}{Jun 2009 - Jul 2011}
-%      \resumeItemListStart
-%        \resumeItem{IBM Portal Server}
-%          {Building Portlets and SOAP Web Services using Java.}
-%        \resumeItem{IBM Business Process Manager}
-%          {Implementing Proof of Concepts for process automation.}
-%      \resumeItemListEnd
-
+    \resumeProjectHeading{Logistics Project: Haul}{}
+    \resumeItemListStart
+        \item Executed a monolith-to-microservices migration, decoupling logic into dedicated Command and Query services using NestJS.
+        \item Implemented CQRS and Event Sourcing using a custom NestJS library with MongoDB as the primary event store.
+        \item Integrated Kafka to manage asynchronous communication and event-driven workflows between microservices.
+        \item Developed fullstack features for the Admin module using React, Redux, and React Query for efficient data caching.
+    \resumeItemListEnd
   \resumeSubHeadingListEnd
 
+\resumeSubheading
+  {NTT Data}{Lima, Perú}
+  {Centers Lead Developer}{Sept 2020 -- Aug 2021}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading{Project Acciona: Energy \& Infrastructure}{}
+    \resumeItemListStart
+        \item Architected a custom stock-share registration portal for employees using SPFx, React, and Power Platform.
+        \item Developed serverless integrations with Azure Functions (Node.js) for third-party SMS API orchestration and user verification.
+        \item Engineered high-complexity forms supporting multi-language translation and robust validation via React and Power Automate.
+        \item Mentored a junior development team, providing code reviews and guidance on modernizing SharePoint practices.
+    \resumeItemListEnd
+
+    \resumeProjectHeading{Project Red Eléctrica de España: Energy}{}
+    \resumeItemListStart
+        \item Developed mission-critical server-side components (Event Receivers, Timer Jobs, Web Parts) and PowerShell automation scripts.
+        \item Designed the migration strategy for transitioning legacy on-premise components to SharePoint Online with minimal downtime.
+        \item Customized UI/UX environments through the development of custom Master Pages and advanced branding layouts.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Implementation of Case Manager - Lucinity}
-      {Build GraphQL APIs using TypeScript, Express, Apollo Server with Node and custom React components for Case Manager application.}
-    \resumeSubItem{Migration of Learning Portal - Instructure}
-      {Migrated backend built in Node v5 to v16. Updated SQL migration files from Postgrest v9 to v12. Replaced deprecated JS packages. Refactored code to use new ES6 features (let/const, promises, async/await)}
-    \resumeSubItem{Implementation of custom institutional portal - Fonafe}
-      {Developing custom Content Management System using .NET Core, REST APIs, and MVC for Backend, and Angulas JS and Bootstrap for FrontEnd.}
-  \resumeSubHeadingListEnd
+\section{Side Projects}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Blasón}{Lima, Perú}
+    {Founder \& Lead Engineer | Legaltech SaaS for Peruvian Notaries}{Jun 2026 -- Present}
+    \resumeItemListStart
+      \item Designed and built a full-stack legaltech SaaS from scratch that automates public deed generation for Peruvian notaries, reducing registry observations and operational overhead.
+      \item Architected a NestJS modular monolith with DDD and Hexagonal Architecture, split into six bounded contexts (Identity/RBAC, Document Intake, Notarial File, Document Management, Legal Directory, Legal Acts) communicating exclusively through domain events.
+      \item Engineered a document processing pipeline on BullMQ and Redis: AWS Textract OCR for scanned documents, OpenAI LLM extraction driven by database-backed prompt and schema templates, and PDF post-processing that overlays invisible searchable text on scanned PDFs.
+      \item Built a data-driven document classification engine (keyword banks and geometric signatures) and a rules engine that evaluates legal requirements per notarial act to compute required-document checklists.
+      \item Implemented the notarial workflow as an aggregate-root state machine (kardex numbering, validation, process states) with append-only audit trails, plus real-time updates over Socket.IO.
+      \item Developed a React 18 + Vite + Tailwind frontend featuring an interactive PDF viewer that highlights LLM-extracted fields via text-layer evidence matching, with JWT + Argon2 role-based access control (admin, notario, oficial\_mayor) and PostgreSQL via Prisma.
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
 
-%
-%--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
-  \resumeSubHeadingListStart
-      \resumeSubItem{Languages}{: TypeScript, Javascript, CSharp, Java, Python }          
-      \resumeSubItem{Frameworks}{: Express, NestJS, Apollo GraphQL, Hapi, Net Core, Spring Boot}      
-      \resumeSubItem{Methodologies}{: Waterfall, Agile, Kanban, DevOps}      
-      \resumeSubItem{Idioms}{: Spanish - Native / English - C1 Advanced} 
-  \resumeSubHeadingListEnd
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of the Pacific}{Lima, Perú}
+    {Master in Finance -- Investment Portfolio Management}{}
+  \resumeSubheading
+    {National University of Engineering}{Lima, Perú}
+    {Bachelor in Systems Engineering}{}
+\resumeSubHeadingListEnd
 
+%--------TECHNICAL SKILLS------------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, labelsep=0.15in]
+    \small{\item{
+     \textbf{Architecture \& Backend}{: Distributed Systems, Microservices, CQRS, Event Sourcing, DDD, NestJS, Node.js, GraphQL (Apollo), Python, C\#} \\
+     \textbf{Data \& Messaging}{: Kafka, PostgreSQL (Flyway), MongoDB, Redis, ElasticSearch, MariaDB} \\
+     \textbf{Cloud \& Infrastructure}{: AWS (Fargate, S3, ECS), Azure (Functions, Web Apps), Docker, Kubernetes, Terraform, GitHub Actions} \\
+     \textbf{Engineering Productivity}{: Arch Linux, NeoVim (Custom LSP/Treesitter), Tmux, Git, Shell Scripting (Zsh/Bash)} \\
+     \textbf{Languages}{: Spanish (Native), English (C1 Advanced)}
+    }}
+ \end{itemize}
 
 %-------------------------------------------
 \end{document}

@@ -1,86 +1,166 @@
-% LaTeX file for resume 
-% This file uses the resume document class (res.cls)
+% Resume in Latex
+% Author : Jose Vega
+% License : MIT
+% Target: Architecture & High-Scale Backend Roles
+%------------------------
 
-\documentclass[margin]{res} 
-% the margin option causes section titles to appear to the left of body text 
-\textwidth=5.2in % increase textwidth to get smaller right margin
-%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
-%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\documentclass[letterpaper,11pt]{article}
 
-\begin{document} 
- 
-\name{José E. Vega Raymondi\\[12pt]} % the \\[12pt] adds a blank line after name
- 
-\address{{\bf Dirección} \\ Jr. Galvez Chipoco 360 \\ Cercado Lima, Lima 01  \\
-        (51) 991139451 }
-\address{{\bf josevegar@gmail.com \\ jvegar@uni.pe \\ github: \underline{\url{https://github.com/jvegar}} } }
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
 
- 
-\begin{resume} 
- 
-\section{Educación} 
-Bachiller en Ingeniería de Sistemas, Universidad Nacional de Ingeniería \\ \textbf{Dic 2009} \\
-Maestría en Finanzas, Universidad del Pacífico \\ \textbf{Dic 2016} \\
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4.08003pt}
 
-\section{Experiencia}
- {\bf Arquitecto de Soluciones,} Certero, Lima \hfill Mar  2020
- \begin{itemize} \itemsep -2pt  % reduce space between items
- \item Como parte del equipo de Desarrollo para el Proyecto MBP (Nestlé) realicé el diseño del sistema y de las estructuras de datos.
- \item Lideré el equipo de Software Factory.\%.
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom{}
+\raggedright{}
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule{} \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{2pt}\item \small
+    \textbf{#1} \hfill #2 \vspace{-5pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  Resume STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://linkedin.com/in/josevegar}{\Large José E. Vega Raymondi}} & Email : \href{mailto:jvegar@uni.pe}{jvegar@uni.pe}\\
+  \href{https://github.com/jvegar}{https://github.com/jvegar} & Mobile : +51-991139451 \\
+  \textit{Senior Backend Engineer | Distributed Systems Specialist} & Lima, Perú \\
+\end{tabular*}
+
+\begin{center}
+    \small Senior Backend Engineer specializing in \textbf{Distributed Systems} and \textbf{Event-Driven Architecture}. 
+    Expertise in migrating legacy monoliths to \textbf{Microservices} using \textbf{CQRS} and \textbf{Event Sourcing}. 
+    Proven track record of designing high-scale systems with \textbf{NestJS, Kafka, and PostgreSQL}.
+\end{center}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {BairesDev}{Remote}
+  {Software Engineer}{Sept 2021 -- Present}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading{Fintech: Lucinity (Anti-Money Laundering Platform)}{}
+    \resumeItemListStart
+        \item Engineered a high-performance event-store using \textbf{PostgreSQL NOTIFY} to maintain real-time projections for complex financial transaction monitoring and approval workflows.
+        \item Architected and developed scalable \textbf{GraphQL} services via Apollo Server, successfully migrating legacy Python (FastAPI) REST endpoints to improve frontend developer velocity.
+        \item Implemented \textbf{Event Sourcing} patterns to ensure a high-integrity audit trail for case management.
+        \item Managed database schema evolution by executing complex \textbf{Flyway} migrations for high-availability PostgreSQL clusters.
+    \resumeItemListEnd
+
+    \resumeProjectHeading{EdTech: Instructure (Migration \& Infrastructure)}{}
+    \resumeItemListStart
+        \item Led the backend migration of a mission-critical legacy app from \textbf{Node.js v5} to a modern, containerized \textbf{AWS Fargate} environment.
+        \item Refactored legacy JavaScript into modern ES6+ standards, implementing \textbf{Async/Await} and \textbf{Promises} to resolve race conditions and improve performance.
+        \item Modernized DevOps workflows with optimized \textbf{Docker} configurations, integrating AWS S3, Redis, ElasticSearch, and MariaDB.
+    \resumeItemListEnd
+
+    \resumeProjectHeading{Logistics: Haul (Distributed Transportation)}{}
+    \resumeItemListStart
+        \item Orchestrated a \textbf{monolith-to-microservices migration}, decoupling core logistics into dedicated Command and Query services using \textbf{NestJS}.
+        \item Implemented \textbf{CQRS} and \textbf{Event Sourcing} using a custom internal library with \textbf{MongoDB} as the primary event store.
+        \item Integrated \textbf{Kafka} to manage asynchronous service communication and ensure eventual consistency across the logistics platform.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\resumeSubheading
+  {NTT Data}{Lima, Perú}
+  {Centers Lead Developer}{Sept 2020 -- Aug 2021}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading{Enterprise Infrastructure: Acciona \& REE}{}
+    \resumeItemListStart
+        \item Developed serverless integrations with \textbf{Azure Functions} for third-party SMS API orchestration and multi-factor user verification for stock-share registration.
+        \item Designed the migration strategy for transitioning legacy on-premise components to \textbf{SharePoint Online}, ensuring zero downtime for mission-critical services.
+        \item Mentored and led a development team, establishing best practices for modernizing enterprise SharePoint development via \textbf{SPFx} and \textbf{React}.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\resumeSubheading
+  {Certero}{Lima, Perú}
+  {Solutions Architect \& Project Coordinator}{Feb 2017 -- Mar 2020}
+  \resumeItemListStart
+    \item \textbf{Architected and led} complex digital transformation and infrastructure migration projects for enterprise clients including \textbf{Nestlé} and \textbf{Universidad del Pacífico}.
+    \item \textbf{Orchestrated Cloud Migrations} of legacy .NET applications to \textbf{Azure}, refactoring on-premise components into cloud-native services (Azure SQL, Web Apps, Functions).
+    \item Performed \textbf{deep-stack troubleshooting} across networking, application logic, and database performance layers to resolve systemic bottlenecks.
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%--------TECHNICAL SKILLS------------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, labelsep=0.15in]
+    \small{\item{
+     \textbf{Architecture \& Backend}{: Distributed Systems, Microservices, CQRS, Event Sourcing, DDD, NestJS, Node.js, GraphQL (Apollo), Python, C\#} \\
+     \textbf{Data \& Messaging}{: Kafka, PostgreSQL (Flyway), MongoDB, Redis, ElasticSearch, MariaDB} \\
+     \textbf{Cloud \& Infrastructure}{: AWS (Fargate, S3, ECS), Azure (Functions, Web Apps), Docker, Kubernetes, Terraform} \\
+     \textbf{Engineering Productivity}{: Arch Linux, NeoVim (Custom LSP/Treesitter), Tmux, Git, Shell Scripting (Zsh/Bash)} \\
+     \textbf{Languages}{: Spanish (Native), English (C1 Advanced)}
+    }}
  \end{itemize}
 
- 
- 
-{\bf Especialista SharePoint,} Evol, Lima \hfill  Ene 2017
-\begin{itemize} \itemsep -2pt %reduce space between items
-\item Como parte del equipo de Desarrollo, realicé la migración de la Intranet Coga, incluyendo el diseño 
-de la nueva arquitectura física y el desarrollo de componentes obsoletos. \%.
-\end{itemize}
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of the Pacific}{Lima, Perú}
+    {Master in Finance -- Investment Portfolio Management}{}
+  \resumeSubheading
+    {National University of Engineering}{Lima, Perú}
+    {Bachelor in Systems Engineering}{}
+\resumeSubHeadingListEnd
 
-{\bf Desarrollador SharePoint,} Logica, Lima \hfill  Dic 2013
-\begin{itemize} \itemsep -2pt %reduce space between items
-\item \%.
-\end{itemize}
-
-\section{Activities and Project Work} 
-               {\bf Hackers @ Berkeley,} U.C. Berkeley, Berkeley, CA    \hfill         2013 - Present 
-                \begin{itemize} \itemsep -2pt
-              \item Led the [something cool] project that ended up being attended by [number] of students.
-                 
-                \item  Handled redesign of the website, which improved email form conversion by [some]\%. 
-
-		 \end{itemize}
-
-		{\bf Creator,} [a website you built] \hfill   2015 
-                \begin{itemize} \itemsep -2pt
-                 \item  Handled all back end development of the project, working with two friends. We built it as a personal project.
-                
-                 \item URL (some URL that shows what you built and ideally some comments from users that liked it): \underline{\url{https://news.ycombinator.com/item?id=9927219}}
-                
-                 \item Received a total of [number] users over [number] days. 
-		 \end{itemize}
-
-                  {\bf  Creator,}  [a project on github you built]    \hfill                                 2014 
-                 \begin{itemize} \itemsep -2pt
-
-               \item    Built [name] as a personal project to solve the problem I was having with [problem].
-                 
-               \item  URL: \underline{\url{https://github.com/breakoutlist/career-notes/}}
-		 \end{itemize}
-
-% Tabulate Computer Skills; p{3in} defines paragraph 3 inches wide
-\section{Computer \\ Skills}
-   \begin{tabular}{l p{3in}}
-    \underline{Languages:} & COBOL, Pascal,C, APL, Basic \\
-
-     \underline{Software:} &  SPIRES, dBase III, Datastar database 
-                        systems, GPSS simulation, FCS-EPS financial 
-                        planning, SAS statistical analysis, 
-                        Lotus1-2-3, MPSX optimization modeling 
- \end{tabular}
-
-\end{resume} 
-\end{document} 
-
-
-
+\end{document}
